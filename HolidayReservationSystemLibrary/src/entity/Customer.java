@@ -20,31 +20,33 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long custId;
+    
+    private String custName;
 
-    public Long getId() {
-        return id;
+    public Long getCustId() {
+        return custId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCustId(Long custId) {
+        this.custId = custId;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (custId != null ? custId.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
+        // TODO: Warning - this method won't work in the case the custId fields are not set
         if (!(object instanceof Customer)) {
             return false;
         }
         Customer other = (Customer) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.custId == null && other.custId != null) || (this.custId != null && !this.custId.equals(other.custId))) {
             return false;
         }
         return true;
@@ -52,7 +54,21 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Customer[ id=" + id + " ]";
+        return "entity.Customer[ id=" + custId + " ]";
+    }
+
+    /**
+     * @return the custName
+     */
+    public String getCustName() {
+        return custName;
+    }
+
+    /**
+     * @param custName the custName to set
+     */
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
     
 }
